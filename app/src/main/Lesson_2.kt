@@ -25,4 +25,21 @@ fun main() {
         in 1..Int.MAX_VALUE -> println("Введенное число больше нуля")
         else -> println("Введенное число меньше нуля")
     }
+
+    var numbers = arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+    for (x in numbers) {
+        println("Квадрат числа ${x} равен ${x*x}")
+    }
+    
+    var y = 0
+
+    while (y <= 9) {
+        println("Куб числа ${numbers[y]} равен ${numbers[y]*numbers[y]*numbers[y]}")
+        y++
+    }
+
+    repeat(10) { i -> 
+        println("Привет, мир ${i}")
+    }
 }
