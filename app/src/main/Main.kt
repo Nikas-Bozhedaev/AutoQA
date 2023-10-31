@@ -17,7 +17,7 @@ fun main() {
     println("Введите количество миноров")
     var bug_minor = readLine()?.toIntOrNull() ?: 0
     // В этой переменной использую операторы равенства. Условно результат ок, если нет блокеров и критов меньше, чем всех остальных багов
-    var positive_result = bug_blocker == 0 && (bug_critical < bug_normal + bug_minor)
+    val positive_result = bug_blocker == 0 && (bug_critical < bug_normal + bug_minor)
     // В следующей строке использовал подобие fстринге в python. Чтобы не выносить общее количество багов в отдельную переменную
     // Пересчитал их при выводе строки
     println("Всего багов: ${bug_blocker + bug_critical + bug_normal + bug_minor}")
@@ -32,6 +32,6 @@ fun main() {
         println("Сборка может быть пошарена заказчику")
     }
     else {
-        println("Сборка не может быть пошарена заказчику") 
+        println("Сборка не может быть пошарена заказчику")  
     }
 }
