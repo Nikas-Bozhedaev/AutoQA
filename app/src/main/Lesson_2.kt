@@ -8,7 +8,7 @@ fun main() {
     if (number == 0) {
         println("Введенное число равно нулю")
     }
-    else if (number > 1) {
+    else if (number >= 1) {
         if (number % 2 == 0) {
             println("Введенное число ${number} является положительным и четным")
         }
@@ -50,7 +50,7 @@ fun main() {
         var sumNumbers = 0
     
         for (number3 in numbers1) {
-            if (number3 > 0) {
+            if (number3 > 10) {
                 sumNumbers += number3
             }
             else if (number3 < 0) {
@@ -70,6 +70,37 @@ fun main() {
         println(numbers2)
     }
     // Задание 3.3 - Поменялось :(
+        println("Введите целевое число")
+        var target_number = readLine()?.toIntOrNull() ?:0
+        var found = false
+        var col: Int? = null
+        var row: Int? = null
+
+        val matrix = arrayOf(
+        arrayOf(1, 2, 3, 4, 5),
+        arrayOf(6, 7, 8, 9, 10),
+        arrayOf(11, 12, 13, 14, 15),
+        arrayOf(16, 17, 18, 19, 20),
+        arrayOf(21, 22, 23, 24, 25)
+    )
+
+    for (x in matrix.indices) {
+        for (y in matrix.indices) {
+            if (target_number == matrix[x][y]) {
+                found = true
+                col = y + 1
+                row = x + 1
+                break
+            }
+        }
+    }
+
+    if (found) {
+        println("Целевое число ${target_number} найдено в колонке ${col} и строке ${row}")
+    }
+    else {
+        println("Целевое число не найдено!")
+    }
 
     // Задание 4.1
     try {
@@ -98,4 +129,3 @@ fun main() {
             e.printStackTrace() 
         } 
    } 
-}
