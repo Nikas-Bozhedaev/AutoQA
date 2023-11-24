@@ -19,7 +19,7 @@ fun main() {
     else {
         println("Введенное число ${number} является отрицательным")
     }
-// Сделаем тоже самое с WHEN
+    // Сделаем тоже самое с WHEN
     println("Введите число еще раз :)")
     var number2 = readLine()?.toIntOrNull() ?:0
 
