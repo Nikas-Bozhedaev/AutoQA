@@ -1,16 +1,13 @@
 fun main () {
     // Задание 1
-    fun maxOfTwo(numberOne: Int, numberTwo: Int): Int {
-        var maxValue = 0
-           
-        if (numberOne > numberTwo) {
-            maxValue = numberOne 
+    fun maxOfTwo(numberOne: Int, numberTwo: Int): Int {        
+        return if (numberOne > numberTwo) {
+            numberOne 
         }
-        else if (numberTwo > numberOne) {
-            maxValue = numberTwo 
-        }
-           return maxValue 
-        }
+        else {
+            numberTwo
+        }   
+    }
    
     println("Введите первое число")
     var inputNumberOne = readLine()?.toIntOrNull() ?:0
