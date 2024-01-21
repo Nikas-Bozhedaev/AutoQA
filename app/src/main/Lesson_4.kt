@@ -1,9 +1,5 @@
 //Задание 1
-class Car {
-    var model: String = "Zhiguli" 
-    var color: String = "Visnevye"
-    var year: Int = 25  
-
+class Car(val model: String, val color: String, val year: Int) {
     fun drive(){
         println("Поехали на ${model} ${color} ${year} лет")
     }
@@ -20,6 +16,17 @@ enum class DayOfWeek (val value: Int, val russianName: String) {
     SUNDAY(7, "Воскресенье");
 }
 
+// Задание 2 (Второй вариант)
+enum class DayOfWeek1{
+    MONDAY, 
+    TUESDAY, 
+    WEDNESDAY, 
+    THURSDAY, 
+    FRIDAY, 
+    SATURDAY, 
+    SUNDAY;
+}
+
 // Задание 3
 object Singleton {
     fun printMessage() {
@@ -27,8 +34,22 @@ object Singleton {
     }
 }
 
-// Задание 4-5 Есть вопрос по заданию
+// Задание 4 
 class Person {
+    private var name: String = "Имя не установлено" 
+    private var age: Int = 28
+    
+    public fun getName() {
+        println("${name}")
+    }
+
+    public fun getAge() {
+        println("${age}")
+    }
+}
+
+// Задание 5 
+class Person1 {
     var name: String = "Неизвестный" 
         set(value) {
             field = value
@@ -223,22 +244,20 @@ class UserRepository: Repository<User2> {
 
 fun main() {
     // Задание 1
-    val myCar = Car()
-    myCar.model = "BMW"
-    myCar.color = "Black"
-    myCar.year = 5
+    val myCar = Car("Zhiguli", "Visnyovue", 25)
 
     myCar.drive()
 
-    val yourCar = Car()
     println("Введите модель машины")
-    yourCar.model = readLine() ?: "Модель не названа"
+    var youCarModel = readLine() ?: "Модель не названа"
 
     println("Введите цвет машины")
-    yourCar.color = readLine() ?: "Цвет не назван"
+    var youCarColor = readLine() ?: "Цвет не назван"
 
     println("Введите возраст машины")
-    yourCar.year = readLine()?.toIntOrNull() ?:0
+    var youCarYear = readLine()?.toIntOrNull() ?:0
+
+    val yourCar = Car(youCarModel, youCarColor, youCarYear)
 
     yourCar.drive()
     
@@ -247,11 +266,21 @@ fun main() {
         println("${day.russianName} - ${day.value} день недели")
     }
 
+    // Задание 2 (Второй вариант)
+    DayOfWeek1.values().forEach {
+        println(it.name)
+    }
+
     // Задание 3
     Singleton.printMessage()
 
-    // Задание 4-5 Есть вопрос по заданию
-    val mike = Person() 
+    // Задание 4 
+    val jack = Person()
+    jack.getName()
+    jack.getAge()
+
+    // Задание 5 
+    val mike = Person1() 
     mike.name = "Mike Tyson"
     mike.age = -2
     mike.age = 35
