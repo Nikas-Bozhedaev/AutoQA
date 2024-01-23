@@ -1,38 +1,22 @@
 fun main() {
     // Задание 1
-    val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-       
-    fun filter(numbers: List<Int>): List<Int> {
-        var filterNumbers = mutableListOf<Int>()
-        for (number in numbers) {
-            if (number % 2 == 0) {
-                filterNumbers.add(number)
-            }
+    val numbers = (1..10).toList()
+        .filter {
+            it % 2 == 0 
         }
-        return filterNumbers 
-    }
-       
-    val result1 = filter(numbers)
-    println(result1)
+        .map {
+            it * 2 
+        }
+    
+    println(numbers)
        
     // Задание 2
-    val stringNumbers: List<String> = listOf("один" , "два" , "три" , "четыре" , "пять") 
-       
-    fun createMap(stringNumbers: List<String>): Map<String, Int> {
-        var countElements = mutableMapOf<String, Int>()
-           
-        for (stringNumber in stringNumbers) {
-            var elementsFromWords = 0
-            for (elements in stringNumber) {
-                elementsFromWords += 1
-            }
-            countElements[stringNumber] = elementsFromWords 
+    val stringNumbers = listOf("один" , "два" , "три" , "четыре" , "пять")
+        .map {
+            it.length
         }
-        return countElements 
-    }
-       
-    val result2 = createMap(stringNumbers)
-    println(result2)
+
+    println(stringNumbers)
        
     // Задание 3
     fun changeString(a: Int, toString: (Int) -> String = {a -> "Преобразование ${a} в строку"}): String { 
@@ -127,7 +111,7 @@ fun main() {
     println(calculate(4, 2, subtraction))
        
     // Задание 10
-    var numberList = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    var numberList = (1..10).toList()
        
     val sum = numberList.reduce {acc, i -> acc + i}
     val min = numberList.reduce {acc, i -> if (i < acc) i else acc}
@@ -136,4 +120,14 @@ fun main() {
     println("Сумма всех чисел списка ${sum}")
     println("Минимальное значение списка ${min}")
     println("Максимальное значение списка ${max}")
+
+    var numberList2 = (1..10).toList()
+
+    val sum1 = numberList2.fold(0) { acc, i -> acc + i }
+    val min1 = numberList2.fold(10) { acc, i ->  if (i < acc) i else acc}
+    val max1 = numberList2.fold(10) { acc, i -> if(i > acc) i else acc }
+
+    println("Сумма всех чисел списка ${sum1}")
+    println("Минимальное значение списка ${min1}")
+    println("Максимальное значение списка ${max1}")
 }
